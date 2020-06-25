@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'mixins';
+
+.profile-container {
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0.2px 0.4px 0.1px $box_shadows;
+    transition: 0.2s;
+    transition-property: all;
+    @include container_flex();
+    @include container_width ($sm) {
+        flex-flow: row;
+    }
+
+    &:hover {
+        transform: scale(1.07);
+        box-shadow: 1px 1px 1px $highlight_color,
+        1px -1px 1px $highlight_color,
+        -1px 1px 1px $highlight_color,
+        -1px -1px 1px $highlight_color;
+    }
+}
+
+.profile-left {
+    padding: 5px;
+    width: 100%;
+    background-color: $primary_color;
+    border-radius: 4px;
+    @include container_flex();
+}
+
+.profile-right {
+    padding: 5px;
+    width: 100%;
+    @include container_flex($align: start);
+}
+
+.profile-image {
+    border-radius: 50%;
+}
+
+.button-second {
+    background-color: $terceary_color;
+    color: $font_color;
+    border-radius: 4px;
+    width: 100%;
+    height: 5vh;
+    border-style: none;
+    cursor: pointer;
+
+    &:active{
+        background-color: $active_color;
+    }   
+}

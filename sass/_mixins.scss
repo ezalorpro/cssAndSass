@@ -1,0 +1,15 @@
+@import 'variables';
+
+@mixin container_width($break_point) {
+    @media (min-width: $break_point) {
+        @content;
+    }
+}
+
+@mixin container_flex($flow: column, $align: center, $justify: center) {
+    display: flex;
+    flex-flow: $flow;
+    align-items: $align;
+    justify-content: $justify;
+    box-sizing: border-box;
+}
