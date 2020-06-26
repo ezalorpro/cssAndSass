@@ -6,26 +6,55 @@
     }
 }
 
-@mixin container_flex($display: flex, $flow: column, $align: center, $justify: center) {
-    display: $display;
-    flex-flow: $flow;
-    align-items: $align;
-    justify-content: $justify;
-    box-sizing: border-box;
-}
+@mixin container_flex(
+    $display: flex, 
+    $flow: column, 
+    $align: center, 
+    $justify: center
+    ) {
+        display: $display;
+        flex-flow: $flow;
+        align-items: $align;
+        justify-content: $justify;
+        box-sizing: border-box;
+    }
 
-@mixin linksAndSpans($fColor: $font_color,
+@mixin linksAndSpans(
+    $fColor: $font_color,
     $bColor: $background_color,
     $baColor: $active_color,
-    $text_width: 100%,
-) {
-    width: $text_width;
-    background-color: $bColor;
-    color: $fColor;
-    cursor: pointer;
-    user-select: none;
+    $text_width: 100%
+    ) {
+        width: $text_width;
+        background-color: $bColor;
+        color: $fColor;
+        user-select: none;
+        cursor: pointer;
 
-    &:active {
-        background-color: $baColor;
+        &:active {
+            background-color: $baColor;
+        }
     }
-}
+
+@mixin btn-style(
+    $bcolor: $primary_color, 
+    $fcolor: $background_color, 
+    $wbutton: 100%
+    ) {
+        background-color: $bcolor;
+        color: $fcolor;
+        border-radius: 4px;
+        width: $wbutton;
+        height: 5vh;
+        border-style: none;
+        cursor: pointer;
+        @content;
+
+        &:hover {
+            background-color: darken($bcolor, 8%);
+        }
+
+        &:active {
+            background-color: darken($bcolor, 25%);
+        }
+    }

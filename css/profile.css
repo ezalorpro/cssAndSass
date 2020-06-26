@@ -55,8 +55,11 @@
   border-style: none;
   cursor: pointer;
 }
+.button-second:hover {
+  background-color: #dddddd;
+}
 .button-second:active {
-  background-color: #ebebeb;
+  background-color: #b1b1b1;
 }
 
 /*# sourceMappingURL=profile.css.map */

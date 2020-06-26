@@ -3,72 +3,141 @@ body {
   box-sizing: border-box;
 }
 
+.layout {
+  display: grid;
+  grid-template-rows: 60px calc(100vh - 60px);
+  grid-template-columns: auto;
+  height: 100vh;
+  grid-template-areas: "toolbar" "content";
+}
+@media (min-width: 600px) {
+  .layout {
+    grid-template-rows: 60px calc(100vh - 60px);
+    grid-template-columns: 18% auto;
+    height: 100vh;
+    grid-template-areas: "toolbar toolbar" "sidenav content";
+  }
+}
+@media (min-width: 786px) {
+  .layout {
+    grid-template-rows: 60px calc(100vh - 60px);
+    grid-template-columns: 14% auto;
+    grid-template-areas: "toolbar toolbar" "sidenav content";
+  }
+}
+
 .toolbar {
-  width: 100%;
   z-index: 1;
-  height: 60px;
+  grid-area: toolbar;
   padding-left: 10px;
   background-color: #2378da;
-  position: sticky;
   transition: 0.2s;
   transition-property: all;
   display: inline-flex;
   flex-flow: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   box-sizing: border-box;
 }
 .toolbar a,
 .toolbar span {
   margin: 0 5px;
+  display: none;
   width: fit-content;
   background-color: #2378da;
   color: #ffffff;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 }
 .toolbar a:active,
 .toolbar span:active {
   background-color: #3e85d6;
 }
+@media (min-width: 600px) {
+  .toolbar a,
+.toolbar span {
+    display: inline-flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+}
+.toolbar .spacer {
+  display: none;
+  flex: 1 1 auto;
+}
+@media (min-width: 600px) {
+  .toolbar .spacer {
+    display: inherit;
+  }
+}
+.toolbar .menu-button {
+  display: flex;
+  background-color: #2378da;
+  color: #ffffff;
+  border-radius: 4px;
+  width: fit-content;
+  height: 5vh;
+  border-style: none;
+  cursor: pointer;
+}
+.toolbar .menu-button:focus {
+  outline-style: none;
+}
+.toolbar .menu-button:hover {
+  background-color: #1d65b7;
+}
+.toolbar .menu-button:active {
+  background-color: #113c6c;
+}
+@media (min-width: 600px) {
+  .toolbar .menu-button {
+    display: none;
+  }
+}
 .toolbar .title {
   font-size: 20px;
+  display: flex;
+}
+@media (min-width: 600px) {
+  .toolbar {
+    display: inline-flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
 }
 
 .sidenav {
+  display: none;
+  background-color: #ffffff;
   position: fixed;
   top: 60px;
-  left: 0;
-  box-sizing: border-box;
-  border-color: #f1f1f1;
-  border-right-color: #cacaca;
-  border-style: solid;
-  border-width: 2px;
-  height: calc(100% - 60px);
-  color: #272727;
-  justify-content: center;
-  display: none;
-  transition: 0.2s;
-  transition-property: all;
+  width: 30%;
+  z-index: 1;
+  height: calc(100vh - 60px);
 }
 @media (min-width: 600px) {
   .sidenav {
+    box-sizing: border-box;
+    width: inherit;
+    border-color: #f1f1f1;
+    border-right-color: #cacaca;
+    border-style: solid;
+    border-width: 2px;
+    position: inherit;
+    color: #272727;
+    justify-content: center;
+    transition: 0.2s;
+    transition-property: all;
+    grid-area: sidenav;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    width: 18%;
-  }
-}
-@media (min-width: 786px) {
-  .sidenav {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    width: 14%;
   }
 }
 .sidenav a {
@@ -84,17 +153,14 @@ body {
   width: 100%;
   background-color: #ffffff;
   color: #272727;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 }
 .sidenav a:active {
   background-color: #ebebeb;
 }
 
 .content {
-  width: 100%;
-  position: fixed;
-  height: calc(100% - 60px);
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -103,18 +169,7 @@ body {
   transition: 0.2s;
   transition-property: all;
   overflow: auto;
-}
-@media (min-width: 600px) {
-  .content {
-    left: 18%;
-    width: 82%;
-  }
-}
-@media (min-width: 786px) {
-  .content {
-    left: 14%;
-    width: 86%;
-  }
+  grid-area: content;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,57 +7,116 @@ body {
     box-sizing: border-box;
 }
 
+.layout {
+    display: grid;
+    grid-template-rows: 60px calc(100vh - 60px);
+    grid-template-columns: auto;
+    height: 100vh;
+    grid-template-areas: 
+    "toolbar"
+    "content";
+
+    @include container_width($sm) {
+        grid-template-rows: 60px calc(100vh - 60px);
+        grid-template-columns: 18% auto;
+        height: 100vh;
+        grid-template-areas: 
+        "toolbar toolbar"
+        "sidenav content";
+    }
+
+    @include container_width($md) {
+        grid-template-rows: 60px calc(100vh - 60px);
+        grid-template-columns: 14% auto;
+        grid-template-areas:
+            "toolbar toolbar"
+            "sidenav content";
+    }
+}
+
 .toolbar {
-    width: 100%;
     z-index: 1;
-    height: 60px;
+    grid-area: toolbar;
     padding-left: 10px;
     background-color: $primary_color;
-    position: sticky;
     transition: 0.2s;
     transition-property: all;
-    @include container_flex(inline-flex, row, center, flex-start);
+    @include container_flex(inline-flex, row, center, space-between);
 
     a,
     span {
         margin: 0 5px;
+        display: none;
         @include linksAndSpans(
             $background_color, 
             $primary_color,
             $highlight_color,
             $text_width: fit-content
-            )
+            );
+
+        @include container_width($sm) {
+            @include container_flex(inline-flex, row, center, flex-start);
+        }
+    }
+
+    .spacer {
+        display: none;
+        flex: 1 1 auto;
+        @include container_width($sm) {
+            display: inherit;
+        }
+    }
+
+    .menu-button {
+        display: flex;
+
+        &:focus{
+            outline-style: none;
+        }
+
+        @include btn-style(
+            $primary_color, 
+            $background_color,
+            fit-content);
+        
+        @include container_width($sm){
+            display: none;
+        }
     }
 
     .title {
         font-size: 20px;
+        display: flex;
+    }
+
+    @include container_width($sm) {
+        @include container_flex(inline-flex, row, center, flex-start);
     }
 }
 
 .sidenav {
+    display: none;
+    background-color: $background_color;
     position: fixed;
     top: 60px;
-    left: 0;
-    box-sizing: border-box;
-    border-color: $terceary_color;
-    border-right-color: #cacaca;
-    border-style: solid;
-    border-width: 2px;
-    height: calc(100% - 60px);
-    color: $font_color;
-    justify-content: center;
-    display: none;
-    transition: 0.2s;
-    transition-property: all;
+    width: 30%;
+    z-index: 1;
+    height: calc(100vh - 60px);
 
-    @include container_width($sm) {
+    @include container_width($sm){
+        box-sizing: border-box;
+        width: inherit;
+        border-color: $terceary_color;
+        border-right-color: #cacaca;
+        border-style: solid;
+        border-width: 2px;
+        position: inherit;
+        color: $font_color;
+        justify-content: center;
+        transition: 0.2s;
+        transition-property: all;
+        grid-area: sidenav;
         @include container_flex($justify: flex-start);
-        width: 18%;
-    }
-
-    @include container_width($md) {
-        @include container_flex($justify: flex-start);
-        width: 14%;
     }
 
     a {
@@ -73,9 +132,6 @@ body {
 
 
 .content {
-    width: 100%;
-    position: fixed;
-    height: calc(100% - 60px);
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -84,14 +140,5 @@ body {
     transition: 0.2s;
     transition-property: all;
     overflow: auto;
-
-    @include container_width($sm) {
-        left: 18%;
-        width: 82%;
-    }
-
-    @include container_width($md) {
-        left: 14%;
-        width: 86%;
-    }
+    grid-area: content;
 }
