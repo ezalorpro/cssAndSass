@@ -16,8 +16,8 @@
   }
 }
 .profile-container:hover {
-  transform: scale(1.07);
-  box-shadow: 1px 1px 1px #3e85d6, 1px -1px 1px #3e85d6, -1px 1px 1px #3e85d6, -1px -1px 1px #3e85d6;
+  transform: scale(1.05);
+  box-shadow: 1px 1px 1px #458de1, 1px -1px 1px #458de1, -1px 1px 1px #458de1, -1px -1px 1px #458de1;
 }
 
 .profile-left {
@@ -56,10 +56,10 @@
   cursor: pointer;
 }
 .button-second:hover {
-  background-color: #dddddd;
+  background-color: #e9e9e9;
 }
 .button-second:active {
-  background-color: #b1b1b1;
+  background-color: #dddddd;
 }
 
 /*# sourceMappingURL=profile.css.map */

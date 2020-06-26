@@ -13,11 +13,11 @@
     }
 
     &:hover {
-        transform: scale(1.07);
-        box-shadow: 1px 1px 1px $highlight_color,
-        1px -1px 1px $highlight_color,
-        -1px 1px 1px $highlight_color,
-        -1px -1px 1px $highlight_color;
+        transform: scale(1.05);
+        box-shadow: 1px 1px 1px lighten($primary_color, 8%),
+        1px -1px 1px lighten($primary_color, 8%),
+        -1px 1px 1px lighten($primary_color, 8%),
+        -1px -1px 1px lighten($primary_color, 8%);
     }
 }
 

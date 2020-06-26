@@ -49,9 +49,13 @@ body {
   user-select: none;
   cursor: pointer;
 }
+.toolbar a:hover,
+.toolbar span:hover {
+  background-color: #2171cd;
+}
 .toolbar a:active,
 .toolbar span:active {
-  background-color: #3e85d6;
+  background-color: #1d65b7;
 }
 @media (min-width: 600px) {
   .toolbar a,
@@ -86,10 +90,10 @@ body {
   outline-style: none;
 }
 .toolbar .menu-button:hover {
-  background-color: #1d65b7;
+  background-color: #2171cd;
 }
 .toolbar .menu-button:active {
-  background-color: #113c6c;
+  background-color: #1d65b7;
 }
 @media (min-width: 600px) {
   .toolbar .menu-button {
@@ -155,6 +159,9 @@ body {
   color: #272727;
   user-select: none;
   cursor: pointer;
+}
+.sidenav a:hover {
+  background-color: #f7f7f7;
 }
 .sidenav a:active {
   background-color: #ebebeb;

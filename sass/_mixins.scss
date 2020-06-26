@@ -31,9 +31,14 @@
         user-select: none;
         cursor: pointer;
 
-        &:active {
-            background-color: $baColor;
+        &:hover {
+            background-color: darken($bColor, 3%);
         }
+
+        &:active {
+            background-color: darken($bColor, 8%);
+        }
+
     }
 
 @mixin btn-style(
@@ -51,10 +56,10 @@
         @content;
 
         &:hover {
-            background-color: darken($bcolor, 8%);
+            background-color: darken($bcolor, 3%);
         }
 
         &:active {
-            background-color: darken($bcolor, 25%);
+            background-color: darken($bcolor, 8%);
         }
     }
