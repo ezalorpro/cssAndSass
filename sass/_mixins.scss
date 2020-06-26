@@ -6,10 +6,26 @@
     }
 }
 
-@mixin container_flex($flow: column, $align: center, $justify: center) {
-    display: flex;
+@mixin container_flex($display: flex, $flow: column, $align: center, $justify: center) {
+    display: $display;
     flex-flow: $flow;
     align-items: $align;
     justify-content: $justify;
     box-sizing: border-box;
+}
+
+@mixin linksAndSpans($fColor: $font_color,
+    $bColor: $background_color,
+    $baColor: $active_color,
+    $text_width: 100%,
+) {
+    width: $text_width;
+    background-color: $bColor;
+    color: $fColor;
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+        background-color: $baColor;
+    }
 }

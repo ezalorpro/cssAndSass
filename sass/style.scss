@@ -13,13 +13,25 @@ body {
     height: 60px;
     padding-left: 10px;
     background-color: $primary_color;
-    color: $terceary_color;
-    align-items: center;
     position: sticky;
-    box-sizing: border-box;
-    display: inline-flex;
     transition: 0.2s;
     transition-property: all;
+    @include container_flex(inline-flex, row, center, flex-start);
+
+    a,
+    span {
+        margin: 0 5px;
+        @include linksAndSpans(
+            $background_color, 
+            $primary_color,
+            $highlight_color,
+            $text_width: fit-content
+            )
+    }
+
+    .title {
+        font-size: 20px;
+    }
 }
 
 .sidenav {
@@ -39,13 +51,22 @@ body {
     transition-property: all;
 
     @include container_width($sm) {
-        display: flex;
+        @include container_flex($justify: flex-start);
         width: 18%;
     }
 
     @include container_width($md) {
-        display: flex;
+        @include container_flex($justify: flex-start);
         width: 14%;
+    }
+
+    a {
+        cursor: pointer;
+        margin: 5px 0;
+        height: 5vh;
+        user-select: none;
+        @include container_flex();
+        @include linksAndSpans();
     }
     
 }
