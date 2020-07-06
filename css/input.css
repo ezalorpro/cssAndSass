@@ -1,0 +1,60 @@
+.content {
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.input-icons {
+  position: absolute;
+  right: 8%;
+  bottom: 27%;
+}
+
+.input-container {
+  position: relative;
+}
+.input-container input {
+  outline-style: none;
+  border: none;
+  border-bottom: 1px solid #44444486;
+  margin: 10px;
+  padding: 10px;
+}
+.input-container input:focus ~ .input-label, .input-container input:valid ~ .input-label {
+  position: absolute;
+  transform: scale(0.8);
+  transform: translateY(-100%);
+  width: fit-content;
+  background-color: #fff;
+  color: #2378da;
+  display: flex;
+  justify-content: center;
+}
+.input-container input:invalid:focus ~ .input-label {
+  position: absolute;
+  transform: scale(0.8);
+  transform: translateY(-100%);
+  width: fit-content;
+  background-color: #fff;
+  color: #da3f23;
+  display: flex;
+  justify-content: center;
+}
+.input-container input:focus:valid {
+  border-color: #2378da;
+}
+.input-container input:focus:invalid {
+  border-color: #da3f23;
+}
+.input-container .input-label {
+  position: absolute;
+  display: flex;
+  top: 32%;
+  left: 10%;
+  transition: all 0.2s ease;
+}
+.input-container .input-container:focus {
+  border-color: #2378da;
+}
+
+/*# sourceMappingURL=input.css.map */
