@@ -24,7 +24,7 @@
   padding: 10px 4px;
   width: 100%;
 }
-.input-container input:focus ~ .input-label, .input-container input:valid ~ .input-label {
+.input-container input:focus + .input-label, .input-container input:valid + .input-label {
   position: absolute;
   transform: scale(0.8);
   transform: translateY(-120%);
@@ -34,7 +34,13 @@
   display: flex;
   justify-content: center;
 }
-.input-container input:invalid:focus ~ .input-label {
+.input-container input:focus + .input-label + .input-icons {
+  color: #2378da;
+}
+.input-container input:invalid:focus + .input-label + .input-icons {
+  color: #da3f23;
+}
+.input-container input:invalid:focus + .input-label {
   position: absolute;
   transform: scale(0.8);
   transform: translateY(-120%);
