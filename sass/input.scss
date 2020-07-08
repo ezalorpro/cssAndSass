@@ -27,8 +27,8 @@
     padding: 10px 4px;
     width: 100%;
     
-    &:focus ~ .input-label, 
-    &:valid ~ .input-label {
+    &:focus+.input-label,
+    &:valid+.input-label {
       position: absolute;
       transform: scale(0.8);
       transform: translateY(-120%);
@@ -39,7 +39,15 @@
       justify-content: center;
     }
 
-    &:invalid:focus~.input-label {
+    &:focus+.input-label+.input-icons {
+      color: $primary_color;
+    }
+
+    &:invalid:focus+.input-label+.input-icons {
+      color: $secondary_color;
+    }
+
+    &:invalid:focus+.input-label {
       position: absolute;
       transform: scale(0.8);
       transform: translateY(-120%);
