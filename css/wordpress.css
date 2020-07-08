@@ -1,0 +1,27 @@
+
+@media only screen and (min-width: 900px) {
+  .searchform.fusion-search-form.fusion-search-form-clean {
+    width: 300px !important;
+    margin-top: 5px;
+    margin-left: 10px !important;
+    position: relative;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .searchform.fusion-search-form.fusion-search-form-clean {
+    width: 260px !important;
+    margin-top: 5px;
+    margin-left: 10px !important;
+    position: relative;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+    .fusion-mobile-menu-design-modern.fusion-header-v1 .fusion-header, .fusion-mobile-menu-design-modern.fusion-header-v2 .fusion-header, .fusion-mobile-menu-design-modern.fusion-header-v3 .fusion-header, .fusion-mobile-menu-design-modern.fusion-header-v4 .fusion-header, .fusion-mobile-menu-design-modern.fusion-header-v5 .fusion-header, .fusion-mobile-menu-design-modern.fusion-header-v7 .fusion-header {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
