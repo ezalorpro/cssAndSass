@@ -4,7 +4,12 @@
 
 .layout {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+@media (min-width: 500px) {
+  .layout {
+    flex-flow: row wrap;
+  }
 }
 
 .card-container {
@@ -27,54 +32,111 @@
 }
 
 .checkbox {
-  height: 180px;
+  height: 20px;
+}
+@media (min-width: 500px) {
+  .checkbox {
+    height: 180px;
+  }
 }
 
 .checkbox:checked ~ div > .one {
-  animation-duration: 0.2s;
-  animation-name: slideinOne;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:checked ~ div > .two {
-  animation-duration: 0.2s;
-  animation-name: slideinTwo;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:checked ~ div > .three {
   animation-duration: 0.3s;
-  animation-name: slideinThree;
+  animation-name: slideInOneY;
   animation-fill-mode: forwards;
 }
 
-.checkbox:not(:checked) ~ div > .two {
+.checkbox:not(:checked) ~ div > .one {
   animation-duration: 0.3s;
-  animation-name: slideoutTwo;
+  animation-name: slideoutOneY;
   animation-fill-mode: forwards;
 }
 
-.checkbox:not(:checked) ~ div > .three {
-  animation-duration: 0.3s;
-  animation-name: slideoutThree;
-  animation-fill-mode: forwards;
-}
+@media (min-width: 500px) {
+  .checkbox:checked ~ div > .one {
+    animation-duration: 0.3s;
+    animation-name: slideInOneX;
+    animation-fill-mode: forwards;
+  }
 
-@keyframes slideinOne {
+  .checkbox:not(:checked) ~ div > .one {
+    animation-duration: 0.3s;
+    animation-name: slideoutOneX;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes slideInOneX {
   0% {
     position: absolute;
     transform: translateX(0%);
   }
   99% {
     position: absolute;
-    transform: translateX(0%);
+    transform: translateX(calc(0% + 0px));
   }
   100% {
     position: relative;
+  }
+}
+@keyframes slideoutOneX {
+  0% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+  100% {
+    position: absolute;
     transform: translateX(0%);
   }
 }
-@keyframes slideinTwo {
+@keyframes slideInOneY {
+  0% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateY(calc(0% + 0px));
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes slideoutOneY {
+  0% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+  100% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+}
+.checkbox:checked ~ div > .two {
+  animation-duration: 0.3s;
+  animation-name: slideInTwoY;
+  animation-fill-mode: forwards;
+}
+
+.checkbox:not(:checked) ~ div > .two {
+  animation-duration: 0.3s;
+  animation-name: slideoutTwoY;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width: 500px) {
+  .checkbox:checked ~ div > .two {
+    animation-duration: 0.3s;
+    animation-name: slideInTwoX;
+    animation-fill-mode: forwards;
+  }
+
+  .checkbox:not(:checked) ~ div > .two {
+    animation-duration: 0.3s;
+    animation-name: slideoutTwoX;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes slideInTwoX {
   0% {
     position: absolute;
     transform: translateX(0%);
@@ -87,7 +149,65 @@
     position: relative;
   }
 }
-@keyframes slideinThree {
+@keyframes slideoutTwoX {
+  0% {
+    position: absolute;
+    transform: translateX(100%);
+  }
+  100% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+}
+@keyframes slideInTwoY {
+  0% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateY(calc(100% + 20px));
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes slideoutTwoY {
+  0% {
+    position: absolute;
+    transform: translateY(100%);
+  }
+  100% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+}
+.checkbox:checked ~ div > .three {
+  animation-duration: 0.3s;
+  animation-name: slideInThreeY;
+  animation-fill-mode: forwards;
+}
+
+.checkbox:not(:checked) ~ div > .three {
+  animation-duration: 0.3s;
+  animation-name: slideoutThreeY;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width: 500px) {
+  .checkbox:checked ~ div > .three {
+    animation-duration: 0.3s;
+    animation-name: slideInThreeX;
+    animation-fill-mode: forwards;
+  }
+
+  .checkbox:not(:checked) ~ div > .three {
+    animation-duration: 0.3s;
+    animation-name: slideoutThreeX;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes slideInThreeX {
   0% {
     position: absolute;
     transform: translateX(0%);
@@ -100,27 +220,7 @@
     position: relative;
   }
 }
-@keyframes slideoutOne {
-  0% {
-    position: relative;
-    transform: translateX(0%);
-  }
-  100% {
-    position: relative;
-    transform: translateX(0%);
-  }
-}
-@keyframes slideoutTwo {
-  0% {
-    position: absolute;
-    transform: translateX(100%);
-  }
-  100% {
-    position: absolute;
-    transform: translateX(0%);
-  }
-}
-@keyframes slideoutThree {
+@keyframes slideoutThreeX {
   0% {
     position: absolute;
     transform: translateX(200%);
@@ -128,6 +228,29 @@
   100% {
     position: absolute;
     transform: translateX(0%);
+  }
+}
+@keyframes slideInThreeY {
+  0% {
+    position: absolute;
+    transform: translateY(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateY(calc(200% + 40px));
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes slideoutThreeY {
+  0% {
+    position: absolute;
+    transform: translateY(200%);
+  }
+  100% {
+    position: absolute;
+    transform: translateY(0%);
   }
 }
 

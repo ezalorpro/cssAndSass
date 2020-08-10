@@ -4,7 +4,11 @@
 
 .layout {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media (min-width: 500px) {
+    flex-flow: row wrap;
+  }
 }
 
 .card-container {
@@ -27,120 +31,71 @@
 }
 
 .checkbox {
-  height: 180px;
-}
-
-.checkbox:checked ~ div > .one {
-  animation-duration: 0.2s;
-  animation-name: slideinOne;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:checked~div>.two {
-  animation-duration: 0.2s;
-  animation-name: slideinTwo;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:checked~div>.three {
-  animation-duration: 0.3s;
-  animation-name: slideinThree;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:not(:checked)~div>.two {
-  animation-duration: 0.3s;
-  animation-name: slideoutTwo;
-  animation-fill-mode: forwards;
-}
-
-.checkbox:not(:checked)~div>.three {
-  animation-duration: 0.3s;
-  animation-name: slideoutThree;
-  animation-fill-mode: forwards;
-}
-
-@keyframes slideinOne {
-  0% {
-    position: absolute;
-    transform: translateX(0%);
-  }
-
-  99% {
-    position: absolute;
-    transform: translateX(0%);
-  }
-
-  100% {
-    position: relative;
-    transform: translateX(0%);
+  height: 20px;
+  @media (min-width: 500px) {
+    height: 180px;
   }
 }
 
-@keyframes slideinTwo {
-  0% {
-    position: absolute;
-    transform: translateX(0%);
+$clases: (
+  one: (slideInOneX, slideoutOneX, 0%, 0px, slideInOneY, slideoutOneY),
+  two: (slideInTwoX, slideoutTwoX, 100%, 20px, slideInTwoY, slideoutTwoY),
+  three: (slideInThreeX, slideoutThreeX, 200%, 40px, slideInThreeY, slideoutThreeY)
+);
+
+@each $clase, $animacion in $clases {
+
+  .checkbox:checked~div>.#{$clase} {
+    animation-duration: 0.3s;
+    animation-name: nth($animacion, 5);
+    animation-fill-mode: forwards;
   }
 
-  99% {
-    position: absolute;
-    transform: translateX(calc(100% + 20px));
+  .checkbox:not(:checked)~div>.#{$clase} {
+    animation-duration: 0.3s;
+    animation-name: nth($animacion, 6);
+    animation-fill-mode: forwards;
   }
 
-  100% {
-    position: relative;
-  }
-}
-
-@keyframes slideinThree {
-  0% {
-    position: absolute;
-    transform: translateX(0%);
-  }
-
-  99% {
-    position: absolute;
-    transform: translateX(calc(200% + 40px));
+  @media (min-width: 500px) {
+    .checkbox:checked~div>.#{$clase} {
+      animation-duration: 0.3s;
+      animation-name: nth($animacion, 1);
+      animation-fill-mode: forwards;
+    }
+    .checkbox:not(:checked)~div>.#{$clase} {
+      animation-duration: 0.3s;
+      animation-name: nth($animacion, 2);
+      animation-fill-mode: forwards;
+    }
   }
 
-  100% {
-    position: relative;
-  }
-}
-
-@keyframes slideoutOne {
-  0% {
-    position: relative;
-    transform: translateX(0%);
+  @keyframes #{nth($animacion, 1)} {
+    0% {position: absolute; transform: translateX(0%);}
+    99% {position: absolute; transform: translateX(
+      calc(#{nth($animacion, 3)} + #{nth($animacion, 4)})
+      );
+    }
+    100% {position: relative;}
   }
 
-  100% {
-    position: relative;
-    transform: translateX(0%);
-  }
-}
-
-@keyframes slideoutTwo {
-  0% {
-    position: absolute;
-    transform: translateX(100%);
+  @keyframes #{nth($animacion, 2)} {
+    0% {position: absolute; transform: translateX(nth($animacion, 3));}
+    100% {position: absolute; transform: translateX(0%);}
   }
 
-  100% {
-    position: absolute;
-    transform: translateX(0%);
-  }
-}
-
-@keyframes slideoutThree {
-  0% {
-    position: absolute;
-    transform: translateX(200%);
+  @keyframes #{nth($animacion, 5)} {
+    0% {position: absolute; transform: translateY(0%);}
+    99% {position: absolute; transform: translateY(
+      calc(#{nth($animacion, 3)} + #{nth($animacion, 4)})
+      );
+    }
+    100% {position: relative;}
   }
 
-  100% {
-    position: absolute;
-    transform: translateX(0%);
+  @keyframes #{nth($animacion, 6)} {
+    0% {position: absolute; transform: translateY(nth($animacion, 3));}
+    100% {position: absolute; transform: translateY(0%);}
   }
+  
 }
