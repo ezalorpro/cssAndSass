@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.content-container {
+  border: 2px solid #5454dd;
+  margin: 10px;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.one, .two, .three {
+  width: 300px;
+  position: absolute;
+}
+
+.checkbox {
+  width: 100%;
+}
+
+.checkbox:checked ~ .one {
+  animation-duration: 0.2s;
+  animation-name: slideinOne;
+  animation-fill-mode: forwards;
+}
+
+.checkbox:checked ~ .two {
+  animation-duration: 0.2s;
+  animation-name: slideinTwo;
+  animation-fill-mode: forwards;
+}
+
+.checkbox:checked ~ .three {
+  animation-duration: 0.3s;
+  animation-name: slideinThree;
+  animation-fill-mode: forwards;
+}
+
+.checkbox:not(:checked) ~ .three {
+  animation-duration: 0.3s;
+  animation-name: slideoutThree;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideinOne {
+  0% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+  100% {
+    position: relative;
+    transform: translateX(0%);
+  }
+}
+@keyframes slideinTwo {
+  0% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateX(100%);
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes slideinThree {
+  0% {
+    position: absolute;
+    transform: translateX(0%);
+  }
+  99% {
+    position: absolute;
+    transform: translateX(200%);
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes slideoutOne {
+  0% {
+    position: relative;
+    transform: translateX(0%);
+  }
+  99% {
+    position: relative;
+    transform: translateX(0%);
+  }
+  100% {
+    position: absolute;
+  }
+}
+@keyframes slideoutTwo {
+  0% {
+    position: relative;
+    transform: translateX(100%);
+  }
+  99% {
+    position: relative;
+    transform: translateX(0%);
+  }
+  100% {
+    position: absolute;
+  }
+}
+@keyframes slideoutThree {
+  0% {
+    position: relative;
+    transform: translateX(200%);
+  }
+  99% {
+    position: relative;
+    transform: translateX(0%);
+  }
+  100% {
+    position: absolute;
+  }
+}
+
+/*# sourceMappingURL=transiciones.css.map */

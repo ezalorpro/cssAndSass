@@ -169,7 +169,7 @@ body {
 
 .content {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
@@ -177,6 +177,10 @@ body {
   transition-property: all;
   overflow: auto;
   grid-area: content;
+}
+.content > * {
+  flex-basis: 300px;
+  flex-grow: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
