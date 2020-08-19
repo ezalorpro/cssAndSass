@@ -1,0 +1,59 @@
+.addComponent-container {
+  display: grid;
+  grid-template-areas: "items" "button";
+  grid-template-rows: calc( 100% - 3rem) 3rem;
+  grid-template-columns: 100%;
+}
+
+.items-list-container {
+  grid-area: items;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.item-added {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 1rem 2rem;
+  color: #faeb1a;
+  flex-basis: 150px;
+  max-height: 100px;
+  background: #3d3d3d;
+  border: 2px solid #505050;
+  border-radius: 4px;
+  margin: 20px;
+  transition: 0.3s all ease;
+}
+.item-added:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background: #515151;
+}
+
+.addButton {
+  grid-area: button;
+  border-radius: 50%;
+  display: flex;
+  width: fit-content;
+  background: #3d3d3d;
+  color: #faeb1a;
+  border: 2px solid #faeb1a;
+  font-size: 2rem;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.addButton:hover {
+  cursor: pointer;
+  background: #515151;
+}
+.addButton:focus {
+  background: #616161;
+  outline: none;
+}
+
+/*# sourceMappingURL=addComponent.css.map */
