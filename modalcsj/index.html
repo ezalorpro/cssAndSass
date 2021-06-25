@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modal CSJ</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      .modal__img {
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        animation: modal-show 0.5s 1 forwards;
+        z-index: 10;
+      }
+
+      .modal__img-content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+        width: max-content;
+        height: auto;
+        margin: auto;
+        background-color: #fff;
+      }
+
+      .modal__img-show {
+        display: flex !important;
+      }
+
+      .modal__img-hide {
+        margin: 10px;
+        z-index: 2;
+        background: #0b986a;
+        color: #fff;
+        cursor: pointer;
+        overflow: visible;
+        padding: 10px 20px;
+        width: auto;
+        border-radius: 0!important;
+        border: medium none;
+        font-weight: bold;
+      }
+
+      .modal__img-hide:hover {
+        background: #065e41;
+      }
+
+      @keyframes modal-show {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .modal__img-img {
+        max-width: 100%;
+        width: 100%;
+        z-index: 1;
+        height: auto;
+        max-height: 85vh;
+      }
+    </style>
+    <div class="modal__img" id="modal__img">
+      <div class="modal__img-content">
+        <img width="1080" height="601" class="modal__img-img" src="https://www.ramajudicial.gov.co/documents/13382825/68503968/Bienvenida+CNDJ/7ae41dbb-86ad-47b9-934f-9cb24d6b006e?t=1624641769967" alt="imagen" />
+        <button class="modal__img-hide" id="modal__img-close">Aceptar</button>
+      </div>
+    </div>
+    <script>
+
+      // AUI().ready(function () {
+      //   $("#modal__img").addClass("modal__img-show")
+      //   $("#modal__img-close").on("click", function() {
+      //     $("#modal__img").removeClass("modal__img-show")
+          
+      //   })
+      // });
+
+      $(document).ready(function () {
+        $("#modal__img").addClass("modal__img-show")
+        $("#modal__img-close").on("click", function() {
+          $("#modal__img").removeClass("modal__img-show")
+          
+        })
+
+        // $("#modal__img").on("click", function(event) {
+        //   if($(event.target).is("#modal__img")) {
+        //     $("#modal__img").removeClass("modal__img-show")
+        //   }
+        // })
+      });
+    </script>
+  </body>
+</html>

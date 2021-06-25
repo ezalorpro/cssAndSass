@@ -1,0 +1,17 @@
+body {
+    background: #f7f7f7;
+}
+
+.imagen-absolute {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: -1;
+    opacity: 0.2;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.container {
+    width: 100%;
+}
